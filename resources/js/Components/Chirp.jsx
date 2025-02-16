@@ -45,7 +45,7 @@ export default function Chirp({ chirp }) {
                                 </button>
                             </Dropdown.Trigger>
                             <Dropdown.Content>
-                                <button className="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 ease-in-out" onClick={() => setEditing(true)}>
+                                <button className="block w-full px-4 py-2 text-left text-sm leading-5 dark:text-white dark:hover:bg-gray-800 dark:focus:bg-gray-800 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 ease-in-out" onClick={() => setEditing(true)}>
                                     Edit
                                 </button>
                                 <Dropdown.Link as="button" href={route('chirps.destroy', chirp.id)} method="delete">
@@ -57,7 +57,7 @@ export default function Chirp({ chirp }) {
                 </div>
                 {editing
                     ? <form onSubmit={submit}>
-                        <textarea value={data.message} onChange={e => setData('message', e.target.value)} className="mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>
+                        <textarea value={data.message} onChange={e => setData('message', e.target.value)} className="mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring-3 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-xs"></textarea>
                         <InputError message={errors.message} className="mt-2" />
                         <div className="space-x-2">
                             <PrimaryButton className="mt-4">Save</PrimaryButton>

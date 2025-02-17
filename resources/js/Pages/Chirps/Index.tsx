@@ -5,12 +5,28 @@ import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { useForm, Head } from '@inertiajs/react';
 
-export default function Index({ auth, chirps }) {
+interface ChirpData {
+    id: number;
+    message: string;
+}
+
+interface IndexProps {
+    auth: {
+        user: {
+            name: string;
+            email: string;
+            // Add other user properties if needed
+        };
+    };
+    chirps: ChirpData[];
+}
+
+const Index: React.FC<IndexProps> = ({ auth, chirps }) => {
     const { data, setData, post, processing, reset, errors } = useForm({
         message: '',
     });
 
-    const submit = (e) => {
+    const submit = (e: React.FormEvent) => {
         e.preventDefault();
         post(route('chirps.store'), { onSuccess: () => reset() });
     };
@@ -38,4 +54,6 @@ export default function Index({ auth, chirps }) {
             </div>
         </AuthenticatedLayout>
     );
-}
+};
+
+export default Index;

@@ -10,6 +10,10 @@ interface ChirpData {
     message: string;
 }
 
+interface ChirpsResponse {
+    data: ChirpData[];
+}
+
 interface IndexProps {
     auth: {
         user: {
@@ -18,10 +22,12 @@ interface IndexProps {
             // Add other user properties if needed
         };
     };
-    chirps: ChirpData[];
+    chirps: ChirpsResponse;
 }
 
 const Index: React.FC<IndexProps> = ({ auth, chirps }) => {
+    console.log(auth, chirps)
+
     const { data, setData, post, processing, reset, errors } = useForm({
         message: '',
     });
@@ -47,7 +53,7 @@ const Index: React.FC<IndexProps> = ({ auth, chirps }) => {
                     <PrimaryButton className="mt-4" disabled={processing}>Chirp</PrimaryButton>
                 </form>
                 <div className="mt-6 bg-white shadow-xs rounded-lg divide-y">
-                    {chirps.map(chirp =>
+                    {chirps.data.map(chirp =>
                         <Chirp key={chirp.id} chirp={chirp}/>
                     )}
                 </div>

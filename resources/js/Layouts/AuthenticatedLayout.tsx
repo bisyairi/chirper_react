@@ -38,9 +38,9 @@ export default function Authenticated({
                                     Chirps
                                 </NavLink>
 
-                                {/*<NavLink href={route('user-management.index')} active={route().current('user-management.index')}>*/}
-                                {/*    User Management*/}
-                                {/*</NavLink>*/}
+                                <NavLink href={route('user-management.index')} active={route().current('user-management.index')}>
+                                    User Management
+                                </NavLink>
 
                                 {/*<NavLink href={route('tic-tac-toe.index')} active={route().current('tic-tac-toe.index')}>*/}
                                 {/*    Tic Tac Toe*/}
